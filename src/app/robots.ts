@@ -5,7 +5,7 @@ export default function robots() {
         userAgent: "*",
       },
     ],
-    sitemap: "https://mikopublishing.house/sitemap.xml",
-    host: "https://mikopublishing.house",
+    sitemap: "https://yaepublishing.house/sitemap.xml",
+    host: "https://yaepublishing.house",
   };
 }

@@ -4,7 +4,7 @@ export default async function sitemap() {
     "",
     "/",
   ].map((route) => ({
-    url: `https://mikopublishing.house${route}`,
+    url: `https://yaepublishing.house${route}`,
     lastModified: new Date().toISOString().split("T")[0],
   }));
 

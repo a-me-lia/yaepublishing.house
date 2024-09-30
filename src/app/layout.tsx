@@ -6,15 +6,15 @@ import Link from 'next/link';
 const inter = Inter({ subsets: ['latin'] , variable:"--font-inter"})
 
 export const metadata: Metadata = {
-  title: "mikopublishing.house",
+  title: "yaepublishing.house",
   description: "",
-  keywords: ['mikopublishing.house', 'yae miko', 'fan site', 'miko', 'miko publishing house', 'genshin'],
+  keywords: ['yaepublishing.house', 'yae miko', 'fan site', 'miko', 'yae publishing house', 'genshin'],
   openGraph: {
-    title: "Miko Publishing House",
-    description: "Miko Publishing House",
-    url: "https://mikopublishing.house",
-    images: "https://mikopublishing.house/favicon.ico",
-    siteName: "mikopublishing.house",
+    title: "Yae Publishing House",
+    description: "Yae Publishing House",
+    url: "https://yaepublishing.house",
+    images: "https://yaepublishing.house/favicon.ico",
+    siteName: "yaepublishing.house",
     locale: "en-US",
     type: "website",
   },

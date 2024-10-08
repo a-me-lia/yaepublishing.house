@@ -1,28 +1,30 @@
 {
-  "name": "yaepublishing.house",
+  "name": "mikopublishing",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
-    "next": "13.5.4",
+    "firebase": "^10.14.0",
+    "next": "14.2.14",
     "react": "^18",
-    "react-dom": "^18",
-    "resend": "^1.1.0"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "autoprefixer": "^10",
     "eslint": "^8",
-    "eslint-config-next": "13.5.4",
+    "eslint-config-next": "14.2.14",
     "postcss": "^8",
-    "tailwindcss": "^3",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
 }

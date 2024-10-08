@@ -137,7 +137,7 @@ const AuthNav = () => {
             Log In
           </button>
           <p className="mt-2 text-center">
-            Don't have an account?
+            Don&apos;t have an account?&nbsp;
             <span
               className="text-blue-500 cursor-pointer hover:underline"
               onClick={() => setIsSignUp(true)}

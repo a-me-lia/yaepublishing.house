@@ -37,7 +37,7 @@ const AuthNav = () => {
   };
 
   return (
-    <nav className="relative z-50 flex items-center justify-between p-4 bg-pink-50 shadow">
+    <nav className="relative z-50 flex items-center justify-between p-4 bg-pink-50 shadow  ">
       <div>
         {!currentUser ? (
           <h2 className="text-xl font-semibold cursor-pointer" onClick={() => setIsSignUp(true)}>
@@ -58,7 +58,7 @@ const AuthNav = () => {
         </button>
       )}
       {isSignUp && !currentUser && (
-        <div className="absolute top-16 left-0 right-0 bg-white p-6 rounded shadow-lg z-50">
+        <div className="absolute top-16 left-4 lg:w-1/4 bg-white p-6 rounded shadow-lg z-50">
           <h2 className="text-xl font-semibold text-center">Sign Up</h2>
           {error && <p className="text-red-500 text-sm text-center">{error}</p>}
           <input
@@ -111,7 +111,7 @@ const AuthNav = () => {
         </div>
       )}
       {!isSignUp && !currentUser && (
-        <div className="absolute top-16 left-0 right-0 bg-white p-6 rounded shadow-lg z-50">
+        <div className="absolute top-16 left-4 lg:w-1/4 bg-white p-6 rounded shadow-lg z-50">
           <h2 className="text-xl font-semibold text-center">Log In</h2>
           {error && <p className="text-red-500 text-sm text-center">{error}</p>}
           <input
@@ -147,6 +147,7 @@ const AuthNav = () => {
           </p>
         </div>
       )}
+
     </nav>
   );
 };

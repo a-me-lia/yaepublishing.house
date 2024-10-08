@@ -3,10 +3,9 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-import AuthModal from './components/authModal';
+import AuthNav from './components/authNav';
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <main className="h-[calc(100dvh)]">
@@ -18,15 +17,10 @@ export default function Home() {
           className="object-cover"
         ></Image>
       </div>
-      <div className="relative flex items-center justify-center h-screen z-50">
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className="bg-blue-500 text-white p-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300"
-        >
-          Open Auth Modal
-        </button>
+      <div className='relative w-full top-0 z-50'>  {<AuthNav/>}</div>
+      <div className="relative flex  flex-col items-center justify-center h-screen z-10 text-pink-500">
+        <h1>love miko</h1>
 
-        {isModalOpen && <AuthModal closeModal={() => setIsModalOpen(false)} />}
       </div>
     </main>
   );

@@ -2,6 +2,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+import { AuthProvider } from './contexts/authContext';
+
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
@@ -44,9 +46,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans text-neutral-800`}>
-        {children}
-      </body>
+      <AuthProvider>
+        <body className={`${inter.variable} font-sans text-neutral-800`}>
+          {children}
+        </body>
+      </AuthProvider>
     </html>
   );
 }

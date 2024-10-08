@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { signUp, logIn } from '../firebase/functions/auth'; // Import backend helper functions
+import dynamic from 'next/dynamic';
 
 const AuthModal = ({ closeModal }: { closeModal: () => void }) => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -11,10 +12,8 @@ const AuthModal = ({ closeModal }: { closeModal: () => void }) => {
     try {
       if (isSignUp) {
         await signUp(email, password);
-        alert('Signed up successfully!');
       } else {
         await logIn(email, password);
-        alert('Logged in successfully!');
       }
       closeModal(); // Close modal after success
     } catch (err) {
@@ -71,4 +70,4 @@ const AuthModal = ({ closeModal }: { closeModal: () => void }) => {
   );
 };
 
-export default AuthModal;
+export default dynamic(() => Promise.resolve(AuthModal), { ssr: false });

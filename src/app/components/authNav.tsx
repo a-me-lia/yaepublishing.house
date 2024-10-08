@@ -110,6 +110,43 @@ const AuthNav = () => {
           </p>
         </div>
       )}
+      {!isSignUp && !currentUser && (
+        <div className="absolute top-16 left-0 right-0 bg-white p-6 rounded shadow-lg z-50">
+          <h2 className="text-xl font-semibold text-center">Log In</h2>
+          {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="mt-4 p-2 border border-pink-300 rounded w-full"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="mt-2 p-2 border border-pink-300 rounded w-full"
+          />
+          <button
+            onClick={handleAuth}
+            className="mt-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white p-2 rounded w-full hover:from-pink-600 hover:to-purple-600"
+          >
+            Log In
+          </button>
+          <p className="mt-2 text-center">
+            Don't have an account?
+            <span
+              className="text-blue-500 cursor-pointer hover:underline"
+              onClick={() => setIsSignUp(true)}
+            >
+              Sign Up
+            </span>
+          </p>
+        </div>
+      )}
     </nav>
   );
 };

@@ -1,14 +1,19 @@
 import { useState } from 'react';
 import { signUp, logIn } from '../firebase/functions/auth'; // Import backend helper functions
-import dynamic from 'next/dynamic';
 
 const AuthModal = ({ closeModal }: { closeModal: () => void }) => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState(''); // For confirming the password
   const [error, setError] = useState('');
 
   const handleAuth = async () => {
+    if (isSignUp && password !== confirmPassword) {
+      setError("Passwords don't match");
+      return;
+    }
+
     try {
       if (isSignUp) {
         await signUp(email, password);
@@ -34,7 +39,7 @@ const AuthModal = ({ closeModal }: { closeModal: () => void }) => {
           value={email}
           onChange={e => setEmail(e.target.value)}
           required
-          className="mt-4 p-2 border border-gray-300 rounded w-full"
+          className="mt-4 p-2 border border-pink-300 rounded w-full"
         />
         <input
           type="password"
@@ -42,11 +47,21 @@ const AuthModal = ({ closeModal }: { closeModal: () => void }) => {
           value={password}
           onChange={e => setPassword(e.target.value)}
           required
-          className="mt-2 p-2 border border-gray-300 rounded w-full"
+          className="mt-2 p-2 border border-pink-300 rounded w-full"
         />
+        {isSignUp && (
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={e => setConfirmPassword(e.target.value)}
+            required
+            className="mt-2 p-2 border border-pink-300 rounded w-full"
+          />
+        )}
         <button
           onClick={handleAuth}
-          className="mt-4 bg-green-500 text-white p-2 rounded w-full hover:bg-green-600"
+          className="mt-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white p-2 rounded w-full hover:from-pink-600 hover:to-purple-600"
         >
           {isSignUp ? 'Sign Up' : 'Log In'}
         </button>
@@ -70,4 +85,5 @@ const AuthModal = ({ closeModal }: { closeModal: () => void }) => {
   );
 };
 
-export default dynamic(() => Promise.resolve(AuthModal), { ssr: false });
+// Export dynamically with SSR disabled
+export default AuthModal

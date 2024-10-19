@@ -1,8 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-
-import AuthNav from './components/authNav';
+import Link from 'next/link';
 
 export default function Home() {
 
@@ -16,10 +15,10 @@ export default function Home() {
           className="object-cover"
         ></Image>
       </div>
-      <div className='relative w-full top-0 z-50'>  {<AuthNav/>}</div>
       <div className="relative flex  flex-col items-center justify-center h-screen z-10 text-pink-500">
-        <h1>love miko</h1>
-
+        <h1 font-bold text-4xl>Yae Publishing House</h1>
+        <h1 font-bold text-xl>Please check back later for updates to this site !</h1>
+        <Link href="https://www.youtube.com/@marinzsh"><h1 font-bold text-2xl>Watch videos !</h1></Link>
       </div>
     </main>
   );

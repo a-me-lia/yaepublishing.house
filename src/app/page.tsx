@@ -16,9 +16,9 @@ export default function Home() {
         ></Image>
       </div>
       <div className="relative flex  flex-col items-center justify-center h-screen z-10 text-pink-500">
-        <h1 font-bold text-4xl>Yae Publishing House</h1>
-        <h1 font-bold text-xl>Please check back later for updates to this site !</h1>
-        <Link href="https://www.youtube.com/@marinzsh"><h1 font-bold text-2xl>Watch videos !</h1></Link>
+        <h1 className='font-bold text-4xl'>Yae Publishing House</h1>
+        <h1 className='font-bold text-xl'>Please check back later for updates to this site !</h1>
+        <Link href="https://www.youtube.com/@marinzsh"><h1 className='font-bold text-2xl hover:underline'>Watch videos !</h1></Link>
       </div>
     </main>
   );

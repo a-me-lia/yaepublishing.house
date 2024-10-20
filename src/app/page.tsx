@@ -6,20 +6,24 @@ import Link from 'next/link';
 export default function Home() {
 
   return (
-    <main className="h-[calc(100dvh)]">
-      <div className="w-full h-full absolute z-0">
-        <Image
-          src="/background.png"
-          alt="miko!"
-          fill
-          className="object-cover"
-        ></Image>
-      </div>
-      <div className="relative flex  flex-col items-center justify-center h-screen z-10 text-pink-500">
-        <h1 className='font-bold text-4xl'>Yae Publishing House</h1>
-        <h1 className='font-bold text-xl'>Please check back later for updates to this site !</h1>
-        <Link href="https://www.youtube.com/@marinzsh"><h1 className='font-bold text-2xl hover:underline'>Watch videos !</h1></Link>
-      </div>
-    </main>
+<main className="h-[100dvh] relative">
+  <div className="w-full h-full absolute z-0">
+    <Image
+      src="/background.png"
+      alt="miko!"
+      fill
+      className="object-cover"
+    />
+  </div>
+  <div className="relative flex flex-col items-center justify-center h-screen z-10">
+    <div className="text-pink-200 bg-black/20 p-8 rounded-lg z-20">
+      <h1 className="font-bold text-4xl">Yae Publishing House</h1>
+      <h2 className="mt-6 font-bold text-xl">Please check back later for updates to this site!</h2>
+      <Link href="https://www.youtube.com/@marinzsh">
+        <h2 className="font-bold text-2xl hover:underline">Watch videos!</h2>
+      </Link>
+    </div>
+  </div>
+</main>
   );
 }

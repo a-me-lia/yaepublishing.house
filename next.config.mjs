@@ -1,4 +1,9 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+import mdx from '@next/mdx';
 
-export default nextConfig;
+const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
+};
+
+export default mdx()(nextConfig);

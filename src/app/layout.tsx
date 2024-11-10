@@ -2,6 +2,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+import Nav from './components/nav';
+
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -46,6 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en">
         <body className={`${inter.variable} font-sans text-neutral-800`}>
+          <Nav></Nav>
           {children}
         </body>
     </html>

@@ -8,7 +8,7 @@ const YaePublishingPage: React.FC = () => {
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
       <div className="relative z-10 flex flex-col">
-        <header className="bg-pink-400 p-6 text-center text-white font-bold text-3xl">
+        <header className="bg-[#fff0f2] p-6 text-center text-white font-bold text-3xl">
           Yae Publishing House
         </header>
 
@@ -48,7 +48,7 @@ const YaePublishingPage: React.FC = () => {
           </section>
         </main>
 
-        <footer className="bg-pink-400 p-6 text-center text-white">
+        <footer className="bg-[#fff0f2] p-6 text-center text-white">
           <p>&copy; {new Date().getFullYear()} Yae Publishing House. All rights reserved.</p>
         </footer>
       </div>

@@ -12,8 +12,27 @@ type FrontMatter = {
   subImage2?: string;
 };
 
+type Props = {
+  frontMatter: FrontMatter;
+  content: string;
+};
+
 export default async function HeroPage({ params }: { params: { slug: string } }) {
-  const filePath = path.join('content', 'renminyingxiong', `${params.slug}.mdx`);
+  // Dynamically determine the content directory path
+  const contentDir =
+    process.env.NODE_ENV === 'production'
+      ? path.join(process.cwd(), 'content') // Absolute path for production
+      : path.join('content'); // Relative path for development
+
+  const filePath = path.join(contentDir, 'renminyingxiong', `${params.slug}.mdx`);
+
+  // Ensure the file exists
+  if (!fs.existsSync(filePath)) {
+    return {
+      notFound: true, // Return 404 if the file doesn't exist
+    };
+  }
+
   const fileContents = fs.readFileSync(filePath, 'utf8');
   const { content, data } = matter(fileContents);
 
@@ -22,4 +41,19 @@ export default async function HeroPage({ params }: { params: { slug: string } })
       <MDXRemote source={content} />
     </MDXTemplate>
   );
+}
+
+export async function generateStaticParams() {
+  // Dynamically determine the content directory path
+  const contentDir =
+    process.env.NODE_ENV === 'production'
+      ? path.join(process.cwd(), 'content') // Absolute path for production
+      : path.join('content'); // Relative path for development
+
+  const files = fs.readdirSync(path.join(contentDir, 'renminyingxiong'));
+  const slugs = files.map((filename) => ({
+    slug: filename.replace('.mdx', ''),
+  }));
+
+  return slugs.map((slug) => ({ slug: slug.slug }));
 }

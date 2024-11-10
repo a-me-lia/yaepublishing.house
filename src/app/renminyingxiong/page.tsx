@@ -8,19 +8,14 @@ type FrontMatter = {
   description?: string;
 };
 
-export default function RenminYingxiongList() {
-  const files = fs.readdirSync(path.join('content', 'renminyingxiong'));
-  const pages = files.map((filename) => {
-    const filePath = path.join('content', 'renminyingxiong', filename);
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const { data } = matter(fileContents);
+type Props = {
+  pages: {
+    slug: string;
+    frontMatter: FrontMatter;
+  }[];
+};
 
-    return {
-      slug: filename.replace('.mdx', ''),
-      frontMatter: data as FrontMatter,
-    };
-  });
-
+export default function RenminYingxiongList({ pages }: Props) {
   return (
     <div className="p-8">
       <h1 className="text-4xl font-bold mb-4">Renminyingxiong - People&apos;s Heroes</h1>
@@ -36,4 +31,31 @@ export default function RenminYingxiongList() {
       </ul>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  // Dynamically determine the content directory path
+  const contentDir =
+    process.env.NODE_ENV === 'production'
+      ? path.join(process.cwd(), 'content') // Absolute path for production
+      : path.join('content'); // Relative path for development
+
+  const files = fs.readdirSync(path.join(contentDir, 'renminyingxiong'));
+
+  const pages = files.map((filename) => {
+    const filePath = path.join(contentDir, 'renminyingxiong', filename);
+    const fileContents = fs.readFileSync(filePath, 'utf8');
+    const { data } = matter(fileContents);
+
+    return {
+      slug: filename.replace('.mdx', ''),
+      frontMatter: data as FrontMatter,
+    };
+  });
+
+  return {
+    props: {
+      pages,
+    },
+  };
 }

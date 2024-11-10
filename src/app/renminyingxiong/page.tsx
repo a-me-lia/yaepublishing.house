@@ -5,13 +5,13 @@ import Link from 'next/link';
 import matter from 'gray-matter';
 
 type FrontMatter = {
-    title: string;
-    description?: string;
-    mainImage?: string;
-    subImage1?: string;
-    subImage2?: string;
-    subImage3?: string;
-  };
+  title: string;
+  description?: string;
+  mainImage?: string;
+  subImage1?: string;
+  subImage2?: string;
+  subImage3?: string;
+};
 
 type Props = {
   pages: {
@@ -57,7 +57,8 @@ export async function generateStaticParams() {
     };
   });
 
+  // Returning an array of objects with a "slug" field for each page
   return pages.map((page) => ({
-    slug: page.slug,
+    params: { slug: page.slug },
   }));
 }

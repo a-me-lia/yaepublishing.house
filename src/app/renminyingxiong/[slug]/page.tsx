@@ -1,3 +1,4 @@
+// src/app/renminyingxiong/[slug]/page.tsx
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -10,6 +11,7 @@ type FrontMatter = {
   mainImage?: string;
   subImage1?: string;
   subImage2?: string;
+  subImage3?: string;
 };
 
 type Props = {
@@ -18,7 +20,6 @@ type Props = {
 };
 
 export default async function HeroPage({ params }: { params: { slug: string } }) {
-  // Dynamically determine the content directory path
   const contentDir =
     process.env.NODE_ENV === 'production'
       ? path.join(process.cwd(), 'content') // Absolute path for production
@@ -44,13 +45,13 @@ export default async function HeroPage({ params }: { params: { slug: string } })
 }
 
 export async function generateStaticParams() {
-  // Dynamically determine the content directory path
   const contentDir =
     process.env.NODE_ENV === 'production'
       ? path.join(process.cwd(), 'content') // Absolute path for production
       : path.join('content'); // Relative path for development
 
   const files = fs.readdirSync(path.join(contentDir, 'renminyingxiong'));
+
   const slugs = files.map((filename) => ({
     slug: filename.replace('.mdx', ''),
   }));

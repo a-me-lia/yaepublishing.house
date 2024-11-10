@@ -1,12 +1,17 @@
+// src/app/renminyingxiong/page.tsx
 import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
 import matter from 'gray-matter';
 
 type FrontMatter = {
-  title: string;
-  description?: string;
-};
+    title: string;
+    description?: string;
+    mainImage?: string;
+    subImage1?: string;
+    subImage2?: string;
+    subImage3?: string;
+  };
 
 type Props = {
   pages: {
@@ -33,8 +38,7 @@ export default function RenminYingxiongList({ pages }: Props) {
   );
 }
 
-export async function getStaticProps() {
-  // Dynamically determine the content directory path
+export async function generateStaticParams() {
   const contentDir =
     process.env.NODE_ENV === 'production'
       ? path.join(process.cwd(), 'content') // Absolute path for production
@@ -53,9 +57,7 @@ export async function getStaticProps() {
     };
   });
 
-  return {
-    props: {
-      pages,
-    },
-  };
+  return pages.map((page) => ({
+    slug: page.slug,
+  }));
 }

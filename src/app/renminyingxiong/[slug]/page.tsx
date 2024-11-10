@@ -14,10 +14,6 @@ type FrontMatter = {
   subImage3?: string;
 };
 
-type Props = {
-  frontMatter: FrontMatter;
-  content: string;
-};
 
 export default async function HeroPage({ params }: { params: { slug: string } }) {
   const contentDir =

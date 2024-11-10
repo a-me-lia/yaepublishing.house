@@ -14,10 +14,6 @@ type FrontMatter = {
   subImage3?: string;
 };
 
-type Props = {
-  frontMatter: FrontMatter;
-  content: string;
-};
 
 export default async function HeroPage({ params }: { params: { slug: string } }) {
   const contentDir =
@@ -42,6 +38,7 @@ export default async function HeroPage({ params }: { params: { slug: string } })
   );
 }
 
+// Standard way to fetch metadata using `generateMetadata`
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const contentDir =
     process.env.NODE_ENV === 'production'

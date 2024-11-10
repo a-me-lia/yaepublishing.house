@@ -23,7 +23,7 @@ export default function RenminYingxiongList() {
 
   return (
     <div className="p-8">
-      <h1 className="text-4xl font-bold mb-4">Renminyingxiong - People's Heroes</h1>
+      <h1 className="text-4xl font-bold mb-4">Renminyingxiong - People&apos;s Heroes</h1>
       <ul>
         {pages.map((page) => (
           <li key={page.slug} className="mb-4">

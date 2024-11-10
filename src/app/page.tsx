@@ -16,7 +16,7 @@ const YaePublishingPage: React.FC = () => {
           <section className="mb-16">
             <h2 className="text-4xl font-extrabold text-pink-400 mb-4">Welcome to Yae Publishing House</h2>
             <p className="text-lg text-white">
-              Greetings, wanderer, and welcome to the grand halls of <span className="font-bold">Yae Publishing House</span>—a realm where stories come to life, and the written word holds untold power.
+              Greetings, wanderer, and welcome to the grand halls of <span className="font-bold">Yae Publishing House</span>&mdash;a realm where stories come to life, and the written word holds untold power.
             </p>
             <p className="text-lg text-white mt-4">
               Once thought to be a humble collection of paper and ink, Yae Publishing House has grown into a sanctuary for the curious, the brave, and those who seek knowledge from the deepest corners of the world. Its library, vast and ever-expanding, is home to rare tomes, ancient scrolls, and modern masterpieces alike. Here, words weave magic, and each page turns with the promise of new adventures.
@@ -33,7 +33,7 @@ const YaePublishingPage: React.FC = () => {
           <section className="mb-16">
             <h2 className="text-3xl font-extrabold text-pink-400 mb-4">Discover the Renminyingxiong Series</h2>
             <p className="text-lg text-white">
-              Our proudest collection, <Link href="/renminyingxiong" className='hover:underline text-blue/50'><span className="font-bold">Renminyingxiong</span></Link>, is a compilation of introductions to heroes that have shaped our world. Heroes, rebels, and scholars—these are the figures who have etched their names into history through daring deeds, but their stories are not all tales of victory. The struggle, the loss, the quiet moments between battles—they all reside within these pages.
+              Our proudest collection, <Link href="/renminyingxiong" className="hover:underline text-blue/50"><span className="font-bold">Renminyingxiong</span></Link>, is a compilation of introductions to heroes that have shaped our world. Heroes, rebels, and scholars&mdash;these are the figures who have etched their names into history through daring deeds, but their stories are not all tales of victory. The struggle, the loss, the quiet moments between battles&mdash;they all reside within these pages.
             </p>
             <p className="text-lg text-white mt-4">
               Join us, traveler, as we unfold these timeless stories and let them guide you through the trials of a world in constant flux.
@@ -43,7 +43,7 @@ const YaePublishingPage: React.FC = () => {
           <section>
             <h2 className="text-3xl font-extrabold text-pink-400 mb-4">About the House</h2>
             <p className="text-lg text-white">
-              Yae Publishing House is more than just a place to find stories—it is where your own story begins. Whether you're a writer, an artist, or someone simply seeking inspiration, our house invites you to explore, create, and leave your mark. Come with an open heart and an inquisitive mind, for the words you seek may not always be where you expect them. But they are always waiting, just beyond the next turn of the page.
+              Yae Publishing House is more than just a place to find stories&mdash;it is where your own story begins. Whether you're a writer, an artist, or someone simply seeking inspiration, our house invites you to explore, create, and leave your mark. Come with an open heart and an inquisitive mind, for the words you seek may not always be where you expect them. But they are always waiting, just beyond the next turn of the page.
             </p>
           </section>
         </main>

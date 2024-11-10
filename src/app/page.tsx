@@ -43,7 +43,7 @@ const YaePublishingPage: React.FC = () => {
           <section>
             <h2 className="text-3xl font-extrabold text-pink-400 mb-4">About the House</h2>
             <p className="text-lg text-white">
-              Yae Publishing House is more than just a place to find stories&mdash;it is where your own story begins. Whether you're a writer, an artist, or someone simply seeking inspiration, our house invites you to explore, create, and leave your mark. Come with an open heart and an inquisitive mind, for the words you seek may not always be where you expect them. But they are always waiting, just beyond the next turn of the page.
+              Yae Publishing House is more than just a place to find stories&mdash;it is where your own story begins. Whether you&apos;re a writer, an artist, or someone simply seeking inspiration, our house invites you to explore, create, and leave your mark. Come with an open heart and an inquisitive mind, for the words you seek may not always be where you expect them. But they are always waiting, just beyond the next turn of the page.
             </p>
           </section>
         </main>

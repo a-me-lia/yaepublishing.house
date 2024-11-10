@@ -20,6 +20,7 @@ type Props = {
   }[];
 };
 
+// Fetch pages directly inside the component
 export default function RenminYingxiongList({ pages }: Props) {
   return (
     <div className="p-8">
@@ -38,7 +39,8 @@ export default function RenminYingxiongList({ pages }: Props) {
   );
 }
 
-export async function generateStaticParams() {
+// Get the pages inside the component
+export async function generateMetadata() {
   const contentDir =
     process.env.NODE_ENV === 'production'
       ? path.join(process.cwd(), 'content') // Absolute path for production
@@ -57,8 +59,7 @@ export async function generateStaticParams() {
     };
   });
 
-  // Returning an array of objects with a "slug" field for each page
-  return pages.map((page) => ({
-    params: { slug: page.slug },
-  }));
+  return {
+    pages,
+  };
 }

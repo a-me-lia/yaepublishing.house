@@ -14,6 +14,10 @@ type FrontMatter = {
   subImage3?: string;
 };
 
+type Props = {
+  frontMatter: FrontMatter;
+  content: string;
+};
 
 export default async function HeroPage({ params }: { params: { slug: string } }) {
   const contentDir =
@@ -25,9 +29,7 @@ export default async function HeroPage({ params }: { params: { slug: string } })
 
   // Ensure the file exists
   if (!fs.existsSync(filePath)) {
-    return {
-      notFound: true, // Return 404 if the file doesn't exist
-    };
+    return <div>404 - Page Not Found</div>; // Display 404 message manually
   }
 
   const fileContents = fs.readFileSync(filePath, 'utf8');
@@ -40,17 +42,25 @@ export default async function HeroPage({ params }: { params: { slug: string } })
   );
 }
 
-export async function generateStaticParams() {
+export async function generateMetadata({ params }: { params: { slug: string } }) {
   const contentDir =
     process.env.NODE_ENV === 'production'
-      ? path.join(process.cwd(), 'content') // Absolute path for production
-      : path.join('content'); // Relative path for development
+      ? path.join(process.cwd(), 'content')
+      : path.join('content');
 
-  const files = fs.readdirSync(path.join(contentDir, 'renminyingxiong'));
+  const filePath = path.join(contentDir, 'renminyingxiong', `${params.slug}.mdx`);
 
-  const slugs = files.map((filename) => ({
-    slug: filename.replace('.mdx', ''),
-  }));
+  if (!fs.existsSync(filePath)) {
+    return {
+      notFound: true,
+    };
+  }
 
-  return slugs.map((slug) => ({ slug: slug.slug }));
+  const fileContents = fs.readFileSync(filePath, 'utf8');
+  const { data } = matter(fileContents);
+
+  return {
+    title: data.title,
+    description: data.description || '',
+  };
 }

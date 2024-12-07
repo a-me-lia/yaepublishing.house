@@ -30,15 +30,7 @@ const YaePublishingPage: React.FC = () => {
             </p>
           </section>
 
-          <section className="mb-16">
-            <h2 className="text-3xl font-extrabold text-pink-400 mb-4">Discover the Renminyingxiong Series</h2>
-            <p className="text-lg text-white">
-              Our proudest collection, <Link href="/renminyingxiong" className="hover:underline text-blue/50"><span className="font-bold">Renminyingxiong</span></Link>, is a compilation of introductions to heroes that have shaped our world. Heroes, rebels, and scholars&mdash;these are the figures who have etched their names into history through daring deeds, but their stories are not all tales of victory. The struggle, the loss, the quiet moments between battles&mdash;they all reside within these pages.
-            </p>
-            <p className="text-lg text-white mt-4">
-              Join us, traveler, as we unfold these timeless stories and let them guide you through the trials of a world in constant flux.
-            </p>
-          </section>
+
 
           <section>
             <h2 className="text-3xl font-extrabold text-pink-400 mb-4">About the House</h2>

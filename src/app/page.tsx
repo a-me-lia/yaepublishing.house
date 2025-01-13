@@ -1,6 +1,12 @@
+'use client'
+
 import React from 'react';
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const YaePublishingPage: React.FC = () => {
+  const { data: session, status } = useSession()
+  const isLoggedIn = status === 'authenticated'
+
   return (
     <div className="relative min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url(/background.png)' }}>
       {/* Overlay */}
@@ -10,6 +16,71 @@ const YaePublishingPage: React.FC = () => {
         <header className="bg-[#fff0f2] p-6 text-center text-pink-400 font-bold text-3xl">
           Yae Publishing House
         </header>
+        <nav className="bg-[#fff0f2] p-4 flex justify-end items-center">
+          <div className="space-x-4">
+            {!isLoggedIn ? (
+              <>
+                <button 
+                  className="px-4 py-2 text-pink-400 hover:text-pink-600 font-medium"
+                  onClick={() => signIn()}
+                >
+                  Login
+                </button>
+                <button
+                  className="px-4 py-2 bg-pink-400 text-white rounded-lg hover:bg-pink-500 transition-colors"
+                  onClick={() => window.location.href = '/signup'}
+                >
+                  Sign Up
+                </button>
+              </>
+            ) : (
+              <button 
+                className="px-4 py-2 text-pink-400 hover:text-pink-600 font-medium"
+                onClick={() => signOut()}
+              >
+                Logout
+              </button>
+            )}
+          </div>
+        </nav>
+        <nav className="flex justify-center space-x-8 p-6">
+          {/* Show these buttons only when logged in */}
+          {isLoggedIn && (
+            <>
+              <button
+                className="px-6 py-3 bg-pink-400 text-white rounded-lg hover:bg-pink-500 transition-colors flex items-center space-x-2"
+                onClick={() => window.location.href = '/write'}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                </svg>
+                <span>Write a Story</span>
+              </button>
+              
+              <button
+                className="px-6 py-3 bg-pink-400 text-white rounded-lg hover:bg-pink-500 transition-colors flex items-center space-x-2"
+                onClick={() => window.location.href = '/drafts'}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                  <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
+                </svg>
+                <span>My Drafts</span>
+              </button>
+            </>
+          )}
+
+          {/* Browse Stories button is always visible */}
+          <button
+            className="px-6 py-3 bg-pink-400 text-white rounded-lg hover:bg-pink-500 transition-colors flex items-center space-x-2"
+            onClick={() => window.location.href = '/browse'}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+            </svg>
+            <span>Browse Stories</span>
+          </button>
+        </nav>
 
         <main className="flex-grow p-8">
           <section className="mb-16">

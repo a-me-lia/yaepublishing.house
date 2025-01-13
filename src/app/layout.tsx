@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import Nav from './components/nav';
+import { Providers } from './providers'
 
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -49,7 +50,7 @@ export default function RootLayout({
     <html lang="en">
         <body className={`${inter.variable} font-sans text-neutral-800`}>
           <Nav></Nav>
-          {children}
+          <Providers>{children}</Providers>
         </body>
     </html>
   );

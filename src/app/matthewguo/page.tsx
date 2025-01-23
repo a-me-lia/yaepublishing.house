@@ -28,7 +28,7 @@ export default function Profile() {
         />
         <div className="text-white mt-4 text-center">
           <h2 className="font-bold text-2xl">Matthew Guo</h2>
-          <p className="mt-2">This is a cute profile description that showcases the character's personality and interests.</p>
+          <p className="mt-2">This is a cute profile description that showcases the character&apos;s personality and interests.</p>
         </div>
       </div>
       <Link href="/"><h2 className="mt-6 font-bold text-2xl hover:underline">Go to home</h2></Link>

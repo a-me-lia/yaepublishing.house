@@ -6,8 +6,6 @@ import { Providers } from './providers'
 
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const delius = 'Delius';
-const maShanZheng = 'Ma Shan Zheng';
 
 export const metadata: Metadata = {
   title: 'yaepublishing.house',

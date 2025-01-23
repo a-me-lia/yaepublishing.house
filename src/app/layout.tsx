@@ -2,11 +2,12 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import Nav from './components/nav';
 import { Providers } from './providers'
 
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const delius = 'Delius';
+const maShanZheng = 'Ma Shan Zheng';
 
 export const metadata: Metadata = {
   title: 'yaepublishing.house',
@@ -48,10 +49,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-        <body className={`${inter.variable} font-sans text-neutral-800`}>
-          <Nav></Nav>
-          <Providers>{children}</Providers>
-        </body>
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Delius&family=Ma+Shan+Zheng&display=swap" rel="stylesheet" />
+      </head>
+      <body className={`${inter.variable} font-sans text-neutral-800`}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

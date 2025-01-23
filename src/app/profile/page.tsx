@@ -27,7 +27,7 @@ export default function Profile() {
             </p>
           </div>
         </div>
-        <Link href="/"><h2 className="mt-6 font-bold text-2xl hover:underline">- Back to home</h2></Link>
+        <Link href="/"><h2 className="mt-6 font-bold text-[#D1636B] text-2xl hover:underline">- Back to home</h2></Link>
       </div>
     </div>
   );

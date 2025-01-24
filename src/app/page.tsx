@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link';
 import React from 'react';
 
 const YaePublishingPage: React.FC = () => {
@@ -22,6 +23,9 @@ const YaePublishingPage: React.FC = () => {
         </section>
 
 
+        <Link href="https://chat.yaepublishing.house">
+          <h2 className="mt-6 font-bold text-[#D1636B] text-2xl hover:underline">- Go to Chat</h2>
+        </Link>
 
 
       </div>

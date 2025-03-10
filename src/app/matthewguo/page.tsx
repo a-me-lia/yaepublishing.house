@@ -11,14 +11,14 @@ export default function Profile() {
         <header className="text-center text-[#D1636B] font-bold text-4xl">
           Matthew Guo
         </header>
-        <div className="mt-6 flex flex-col items-center">
-          <Image
-            src="/image.jpg"
-            alt="Profile Picture"
-            width={150}
-            height={150}
-            className="rounded-full border-4 border-[#D1636B]"
-          />
+  <div className="w-[150px] h-[150px] rounded-full overflow-hidden border-4 border-[#D1636B]">
+    <Image
+      src="/image.jpg"
+      alt="Profile Picture"
+      layout="fill"
+      objectFit="cover"
+    />
+  </div>
           <div className="text-[#D1636B] mt-4 text-center">
             <p>
               Connect with me on <a href="https://www.linkedin.com/in/matthew-guo-5ab664293/" className="font-bold">LinkedIn</a>, 

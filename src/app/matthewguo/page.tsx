@@ -11,13 +11,16 @@ export default function Profile() {
         <header className="text-center text-[#D1636B] font-bold text-4xl">
           Matthew Guo
         </header>
-        <div className="w-[150px] h-[150px] rounded-full overflow-hidden border-4 border-[#D1636B]">
-          <Image
-            src="/image.jpg"
-            alt="Profile Picture"
-            layout="fill"
-            objectFit="cover"
-          />
+        <div className="relative w-[150px] h-[150px] rounded-full overflow-hidden border-4 border-[#D1636B]">
+          <div className="absolute inset-0">
+            <Image
+              src="/image.jpg"
+              alt="Profile Picture"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-full"
+            />
+          </div>
         </div>
           <div className="text-[#D1636B] mt-4 text-center">
             <p>

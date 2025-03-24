@@ -18,7 +18,7 @@ const YaePublishingPage: React.FC = () => {
         <section className="mt-8">
           <h3 className="text-[#D1636B] font-bold text-xl">About This Website</h3>
           <p>
-            Welcome to Yae Publishing House! <a href="/profile" className="text-[#D1636B] font-bold underline">Matthew Guo (Guo Ziyu 郭子玉)</a> owns this website. It is currently just a utility domain to route traffic, store setup scripts, and host tools. Maybe if Ziyu has time, he will publish some of his own works here.
+            Welcome to Yae Publishing House! <a href="/" className="text-[#D1636B] font-bold underline">Matthew Guo (Guo Ziyu 郭子玉)</a> owns this website. It is currently just a utility domain to route traffic, store setup scripts, and host tools. Maybe if Ziyu has time, he will publish some of his own works here.
           </p>
         </section>
 
